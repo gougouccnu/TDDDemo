@@ -72,3 +72,6 @@ class NewVistorTest(LiveServerTestCase):
 
 
 		self.fail('Finish the test!')
+
+
+		
