@@ -17,13 +17,17 @@ eg, on Ubuntu:
 ## Nginx Virtual Host config
 
 * see nginx.template.conf
-* replace SITENAME with, eg, staging.my-domain.com
+* replace SITENAME with, eg, staging.my-domain.com  or 191.101.226.187
 
-## Upstart Job
+## Upstart Job not ok for me lsw
 
 * see gunicorn-upstart.template.conf
 * replace SITENAME with, eg, staging.my-domain.com
 
+instead of gunicorn manully
+
+* ../virtual/bin/gunicorn --bind unix:/tmp/SITENAME.socket superlists.wsgi:application
+* replace SITENAME with, eg 191.101.226.187 
 ## Folder structure:
 Assume we have a user account at /home/username
 
