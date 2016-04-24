@@ -30,7 +30,7 @@ class ItemValidationTest(FunctionTest):
 		self.browser.implicitly_wait(3)
 
 		self.assertEqual(error.text, "You can't have an empty list item")
-		self.browser.implicitly_wait(10)
+		#self.browser.implicitly_wait(10)
 
 		inputbox = self.browser.find_element_by_id('id_new_item')
 		inputbox.send_keys('after blank Buy milk')
@@ -43,7 +43,10 @@ class ItemValidationTest(FunctionTest):
 		error = self.browser.find_element_by_css_selector('.has-error')
 		self.assertEqual(error.text, "You can't have an empty list item")
 
-		self.browser.find_element_by_id('id_new_item').send_keys('Make tea')
+		inputbox = self.browser.find_element_by_id('id_new_item')
+		inputbox.send_keys('Make tea')
+		inputbox.send_keys(Keys.ENTER)
+
 		self.check_for_row_in_list_table('1:after blank Buy milk')
 		self.check_for_row_in_list_table('2:Make tea')
 		
